@@ -1,0 +1,39 @@
+<div class="container" *ngIf="order">
+    <h4>Название тура</h4>
+    <hr>
+    <h5>Данные о туристе:</h5>
+    <p> Имя : {{order.firstName}}  Фамилия: {{order.lastName}}</p>
+    <p>Дата рождения: {{order.dateOfBirthday| date: 'dd.MM.yyyy' }} </p>
+    <p>Телефон: {{order.phoneNumber}} </p> 
+    <p>Email: {{order.email}}</p>
+    <hr>
+    <h5>Данные о документах:</h5>
+    
+    <div *ngIf="order.isBiometricPassport">
+      <p>Биометрический паспорт: {{order.serieAndNumberOfPassport}}</p>
+    </div>
+    <hr>
+    <div>
+      <h5>Дополнительные операции с документами:</h5>
+      <div *ngIf="!order.isBiometricPassport">
+        <p>Необходимо собрать все документы для подачи на биометрический паспорт</p>
+      </div>
+      <div *ngIf="!order.isVisaSupport">
+          <p>Необходимо получить визу</p>
+        </div>
+        <div *ngIf="!order.isInsurance">
+            <p>Необходимо оформить страховку</p>
+        </div>
+        <div *ngIf="!order.isBookingRailwayTicket">
+            <p>Необходимо заказать билеты на поезд</p>
+        </div>
+        <div *ngIf="!order.isBookingAviaTicket">
+            <p>Необходимо забронировать билеты на самолет</p>
+        </div>
+        <div>
+            Турист предпочитает в отеле номера: {{order.desiredHotelAccom}} 
+        </div>
+    </div>
+</div>
+<div><button type="button" class="btn btn-primary"(click)="goBack()">Вернуться</button></div>
+

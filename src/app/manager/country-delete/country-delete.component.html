@@ -1,0 +1,10 @@
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{errorMessage}}
+</div>
+
+<p>Вы действительно хотите удалить страну из списка?</p>
+<p>{{currentCountry.countryName}}</p>
+
+<button class="btn btn-secondary" (click)="goBack()">Отменить</button>
+<button class="btn btn-danger" (click)="deleteCountry()">Удалить</button>

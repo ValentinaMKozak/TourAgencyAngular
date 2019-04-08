@@ -1,0 +1,23 @@
+
+<h2 style="text-align: center;"> Форма тура</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+          <form [formGroup]="countryForm" (ngSubmit)="onSubmit(countryForm)">
+
+              <div class="form-group">
+                  <label for="countryName">Страна</label>
+                  <input id ="countryName" type="text" class="form-control" formControlName="countryName">
+
+                  <div *ngIf="checkError('countryName' ,'required')" class="alert alert-danger">
+                      Required
+                  </div>
+              </div>
+                       
+              <input type="button" class="btn btn-secondary" (click)="goBack()" value="Отменить"/>
+              <input type="submit" class="btn btn-success" value="Сохранить" [disabled]="countryForm.invalid"/>
+          </form>
+
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,40 @@
+<div class="card" style="margin-bottom: 20px;">
+  <img class="card-img-top" class="rounded-circle" src="{{tour.pictureUrl}}" alt="{{tour.tourName}}">
+
+  <div class="card-body">
+      <h5 class="card-title" >{{tour.tourName}}</h5>
+        <table>
+          <tr>
+            <td >Дата отправки: {{tour.departureDate| date: 'dd.MM.yyyy'}}</td>
+            <td >Количество дней: {{tour.numberOfDays}}</td>
+          </tr>
+          <tr>
+              <td> </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+                <td colspan="2" >От {{currentPrice}} UAN -  {{tour.price}} EUR за человека</td>
+                
+              </tr>
+              <tr>
+                  <td></td>
+                  <td></td>
+                </tr>
+              <tr>
+                  <td style="text-align: right;">Страны:</td>
+                  <td>
+                    <ul *ngFor="let country of tour.countries" class="country">
+                      <li>{{country.countryName}}</li>
+                    </ul></td>
+                 
+                </tr>
+        </table> 
+        <br>  
+        <button (click)="onSelect(tour)" class="btn btn-primary display_btn">Подробнее</button> 
+
+  </div>
+</div>

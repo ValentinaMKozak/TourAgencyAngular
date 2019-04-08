@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8" style="margin-bottom: 20px;">
+            <div class="tab-panel">
+                <form [formGroup]="dailyProgramForm" (ngSubmit)="onSubmit(dailyProgramForm)">
+                    <div class="form-group">
+                        <input id ="theme" type="text" class="form-control" formControlName="theme">
+                        <div *ngIf="checkError('theme' ,'required')" class="alert alert-danger">
+                            Required
+                        </div>
+                  </div>
+
+                  <div class="form-group">
+                     <textarea id ="description" name="description" rows="6" class="form-control" formControlName="description"></textarea>
+                     
+                      <div *ngIf="checkError('description' ,'required')" class="alert alert-danger">
+                          Required
+                      </div>
+                </div>
+                <input type="submit" class="btn btn-success" value="Сохранить" [disabled]="dailyProgramForm.invalid"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,35 @@
+
+<button class="btn btn-success" (click)="create()">Создать тур</button>
+
+<div class="container">
+  <div class="row">
+      <div class="col-sm-10">
+        <h3 style="text-align: center;">Список туров</h3> 
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Id тура</th>
+                <th>Название тура</th>
+                <th>Количество дней</th>
+                <th>Стоимость</th>
+                <th>Валюта</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let tour of tours">
+              <tr>
+                <td>{{tour.tourId}}</td>
+                <td>{{tour.tourName}}</td>
+                <td>{{tour.numberOfDays}}</td>
+                <td>{{tour.price}}</td>
+                <td>EUR</td>
+                <td><button class="btn btn-info" (click)="update(tour)">Редактировать</button></td>
+                <td><button class="btn btn-danger" (click)="delete(tour)">Удалить</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+     
+  </div>
+</div>

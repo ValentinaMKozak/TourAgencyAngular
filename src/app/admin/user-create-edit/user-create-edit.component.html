@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 ">
+      <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
+          <div class="form-group">
+              <label for="userName">Имя пользователя</label>
+              <input id ="userName" type="text" class="form-control" formControlName="userName">
+              <div *ngIf="checkError('userName' ,'required')" class="alert alert-danger">
+                Required
+              </div>
+          </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id ="email" type="text" class="form-control" formControlName="email">
+                <div *ngIf="checkError('email' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+            </div>
+
+            <div *ngIf="currentUser.id" class="form-group">
+                <label for="password">Пароль</label>
+                <input id ="password" type="password" class="form-control" formControlName="password">
+                <div *ngIf="checkError('password' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+            </div>
+            <div *ngIf="!currentUser.id" class="form-group">
+                <label for="password">Пароль</label>
+                <input id ="password" type="password" class="form-control" formControlName="password" disabled="true">
+                <div *ngIf="checkError('password' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+            </div>
+
+            <input type="button" class="btn btn-secondary" (click)="goBack()" value="Отменить"/>
+            <input type="submit" class="btn btn-success" value="Сохранить" [disabled]="userForm.invalid"/>
+      </form>
+    </div>
+  </div>
+</div>

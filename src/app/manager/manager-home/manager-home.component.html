@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <ul routerLinkActive="active">
+        <li><a [routerLink]="['/manager/tours']">Туры</a></li>
+        <li><a [routerLink]="['/manager/orders']">Заказы</a></li>
+        <li><a [routerLink]="['/manager/countries']">Страны</a></li>
+        <li><a [routerLink]="['/manager/transports']">Транспорт</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>

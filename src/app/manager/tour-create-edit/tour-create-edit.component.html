@@ -1,0 +1,75 @@
+<h2 style="text-align: center;"> Форма тура</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8">
+        <div class="tab-panel">
+         
+            <form [formGroup]="tourForm" (ngSubmit)="onSubmit(tourForm)">
+                <div class="form-group">
+                    <label for="tourName">Название тура</label>
+                    <input id ="tourName" type="text" class="form-control" formControlName="tourName">
+                    <div *ngIf="checkError('tourName' ,'required')" class="alert alert-danger">
+                        Required
+                    </div>
+                </div>
+                        
+                <div class="form-group">
+                    <label for="departureDate">Дата отправки</label>
+                    <input id ="departureDate" type="date" [value]="currentTour.departureDate | date:'yyyy-MM-dd'" class="form-control" formControlName="departureDate">
+                    <div *ngIf="checkError('departureDate' ,'required')" class="alert alert-danger">
+                        Required
+                    </div>
+                </div>
+                        
+                <div class="form-group">
+                    <label for="numberOfDays">Количество дней</label>
+                    <input id ="numberOfDays" type="number" class="form-control" formControlName="numberOfDays">
+                    <div *ngIf="checkError('numberOfDays' ,'required')" class="alert alert-danger">
+                        Required
+                    </div>
+                </div>
+                        
+                <div class="form-group">
+                    <label for="price">Стоимость</label>
+                    <input id ="price" type="number" class="form-control" formControlName="price">
+                    <div *ngIf="checkError('price' ,'required')" class="alert alert-danger">
+                        Required
+                    </div>
+                </div>
+                        
+                            
+                <div class="form-group">
+                    <label for="currency">Валюта</label>
+                           
+                    <select id="currency" class="form-control" formControlName="currency">
+                         <option  *ngFor="let type of currency" [value]="type">{{type}}</option>
+                    </select>
+                    <div *ngIf="checkError('currency' ,'required')" class="alert alert-danger">
+                         Required
+                    </div>
+                </div>
+                    
+                <input type="button" class="btn btn-secondary" (click)="goBack()" value="Отменить"/>
+                <input type="submit" class="btn btn-success" value="Сохранить" [disabled]="tourForm.invalid"/>
+            </form>       
+    </div>
+    </div>
+  </div>
+  </div>
+<hr>
+
+
+<div *ngIf="currentTour.tourId">
+    <app-picture-list [tour]="currentTour"></app-picture-list> 
+</div>
+<hr>
+<div *ngIf="currentTour.tourId">
+  <input type="button" class="btn btn-primary" (click)="addNewDailyProgram()" value="Добавить к программе тура"/><br>
+  <div *ngIf="!addNewDaily">
+    <app-daily-program-create [tour]="currentTour"></app-daily-program-create>
+  </div>
+</div>
+
+<div *ngIf="currentTour.tourId">
+    <app-daily-program-list [tour]="currentTour"></app-daily-program-list> 
+</div>

@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 ">
+        <form [formGroup]="roleForm" (ngSubmit)="onSubmit(roleForm)">
+            <div class="form-group">
+                <label for="name">Название роли</label>
+                <input id ="name" type="text" class="form-control" formControlName="name">
+                <div *ngIf="checkError('name' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+            </div>
+              <input type="button" class="btn btn-secondary" (click)="goBack()" value="Отменить"/>
+              <input type="submit" class="btn btn-success" value="Сохранить" [disabled]="roleForm.invalid"/>
+        </form>
+      </div>
+    </div>
+  </div>

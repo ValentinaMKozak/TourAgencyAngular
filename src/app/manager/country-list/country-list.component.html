@@ -1,0 +1,30 @@
+
+<button class="btn btn-success" (click)="create()">Добавить страну</button>
+
+<div class="container">
+  <div class="row">
+      <div class="col-sm-10">
+        <h3 style="text-align: center;">Список Стран</h3> 
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Id страны</th>
+                <th>Название страны</th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let country of countries">
+              <tr>
+                <td>{{country.countryId}}</td>
+                <td>{{country.countryName}}</td>
+                
+                <td><button class="btn btn-info" (click)="update(country)">Редактировать</button></td>
+                <td><button class="btn btn-danger" (click)="delete(country)">Удалить</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+     
+  </div>
+</div>

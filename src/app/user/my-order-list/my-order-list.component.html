@@ -1,0 +1,27 @@
+  <div class="container">
+  <div class="row">
+    <div class="col-10">
+        <h3 style="text-align: center;">Мои Заказы</h3> 
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Название тура</th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let Order of orders">
+            <tr>
+              <td>
+                  {{Order.tourName}}
+              </td>
+          
+              <td><button class="btn btn-info" (click)="onSelect(Order)">Детали</button></td>
+              <td><button class="btn btn-danger" (click)="delete(Order)">Удалить</button></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+

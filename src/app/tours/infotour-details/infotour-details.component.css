@@ -1,0 +1,27 @@
+.tour_info {
+    background-color: white;  
+    height: 450px;
+}
+.tour_name {
+    text-align: center;
+    color: black;
+}
+.price_hryvnia{
+    text-align:center; 
+    color:orange;
+    font-size: 20px;
+}
+.price_currency{
+    text-align: center; 
+    color: red;
+    font-size: 10px;
+}
+.country_list{
+    text-align: center;
+}
+
+.display_btn{
+    display:block;
+    position: relative;
+    margin:0 auto;
+}

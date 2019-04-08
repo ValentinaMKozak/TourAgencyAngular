@@ -1,0 +1,9 @@
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{errorMessage}}
+</div>
+
+<p>Вы действительно хотите удалить данный вид транспорта?</p>
+<p>{{currentTransport.transportId}}</p>
+
+<button class="btn btn-secondary" (click)="goBack()">Отменить</button>
+<button class="btn btn-danger" (click)="deleteTransport()">Удалить</button>

@@ -1,0 +1,8 @@
+<button type="button" (click)="goBack()">Back</button>
+<div>
+  <h4>Роли пользователя:</h4>
+  <form *ngFor="let role of combinedRoleList">
+    <input type="checkbox" class="form-control" [checked]="(role.checked ? 'checked': '')" value="{{role.name}}">{{role.name}}<br>
+</form>
+</div>
+

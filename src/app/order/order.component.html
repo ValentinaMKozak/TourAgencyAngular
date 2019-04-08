@@ -1,0 +1,182 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h1 style="text-align: center;">Заказ тура</h1>
+        <div *ngIf="tour">
+            <h4 style="text-align: center;">
+                {{tour.tourName}}
+              </h4>
+              <p style="text-align: right;">
+                Дата отправки:  {{tour.departureDate| date: 'dd.MM.yyyy'}}, стоимость {{tour.price}} EUR
+              </p>
+        </div>
+        <div class="tab-panel">
+          <form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm)">
+
+              <div class="form-group">
+                  <label for="lastName">ФАМИЛИЯ (ИЗ ЗАГРАН. ПАСПОРТА)</label>
+                  <input id ="lastName" type="text" class="form-control" formControlName="lastName">
+                  <div *ngIf="checkError('lastName' ,'required')" class="alert alert-danger">
+                    Required
+                  </div>
+                </div> 
+
+              <div class="form-group">
+                <label for="firstName">ИМЯ (ИЗ ЗАГРАН. ПАСПОРТА)</label>
+                <input id ="firstName" type="text" class="form-control" formControlName="firstName">
+                <div *ngIf="checkError('firstName' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+              </div>
+              
+              
+              
+              <div class="form-group">
+                <label for="dateOfBirthday">ДАТА РОДЖЕНИЯ (ПОЛНОСТЬЮ)</label>
+                <input id ="dateOfBirthday" type="date" class="form-control" formControlName="dateOfBirthday">
+                <div *ngIf="checkError('dateOfBirthday' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="phoneNumber">ТЕЛЕФОН</label>
+                <input id ="phoneNumber" type="text" class="form-control" formControlName="phoneNumber">
+                <div *ngIf="checkError('phoneNumber' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+              </div>
+             
+              <div class="form-group">
+                <label for="email">EMAIL</label>
+                <input id ="email" type="text" class="form-control" formControlName="email">
+                <div *ngIf="checkError('email' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+              </div>
+             
+              <div class="form-group">
+                  <label for="isBiometricPassport">НАЛИЧИЕ БИОМЕТРИЧЕСКОГО ПАСПОРТА</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isBiometricPassport" value="true" formControlName="isBiometricPassport">
+                       да
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isBiometricPassport" value="false" formControlName="isBiometricPassport">
+                        нет
+                    </label>
+                </div>
+                <div *ngIf="checkError('isBiometricPassport' ,'required')" class="alert alert-danger">
+                    Required
+                  </div>
+              </div>
+              
+              <div class="form-group">
+                <label for="serieAndNumberOfPassport">СЕРИЯ И НОМЕР ЗАГРАН. ПАСПОРТА</label>
+                <input id ="serieAndNumberOfPassport" type="text" class="form-control" formControlName="serieAndNumberOfPassport">
+                <div *ngIf="checkError('serieAndNumberOfPassport' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+              </div>
+             
+
+              <div class="form-group">
+                  <label for="isBookingRailwayTicket">БРОНИРОВАНИЕ Ж/Д БИЛЕТОВ</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isBookingRailwayTicket" value="true" formControlName="isBookingRailwayTicket">
+                       да
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isBookingRailwayTicket" value="false" formControlName="isBookingRailwayTicket">
+                        нет
+                    </label>
+                </div>
+                <div *ngIf="checkError('isBookingRailwayTicket' ,'required')" class="alert alert-danger">
+                    Required
+                  </div>
+              </div>
+             
+              <div class="form-group">
+                  <label for="isBookingAviaTicket">БРОНИРОВАНИЕ АВИА БИЛЕТОВ</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isBookingAviaTicket" value="true" formControlName="isBookingAviaTicket">
+                       да
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isBookingAviaTicket" value="false" formControlName="isBookingAviaTicket">
+                        нет
+                    </label>
+                </div>
+                <div *ngIf="checkError('isBookingAviaTicket' ,'required')" class="alert alert-danger">
+                    Required
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="isVisaSupport">ВИЗОВАЯ ПОДДЕРЖКА (подготовка и подача документов в посольство)</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isVisaSupport" value="true" formControlName="isVisaSupport">
+                       да
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isVisaSupport" value="false" formControlName="isVisaSupport">
+                        нет
+                    </label>
+                </div>
+                <div *ngIf="checkError('isVisaSupport' ,'required')" class="alert alert-danger">
+                    Required
+                  </div>
+              </div>
+
+              <div class="form-group">
+                  <label for="isInsurance">СТРАХОВКА</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isInsurance" value="true" formControlName="isInsurance">
+                       да
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="isInsurance" value="false" formControlName="isInsurance">
+                        нет
+                    </label>
+                </div>
+                <div *ngIf="checkError('isInsurance' ,'required')" class="alert alert-danger">
+                    Required
+                  </div>
+            </div>
+
+
+              <div class="form-group">
+                <label for="desiredHotelAccom">ЖЕЛАЕМОЕ РАЗМЕЩЕНИЕ В ОТЕЛЕ</label>
+                <select id ="desiredHotelAccom" class="form-control" formControlName="desiredHotelAccom">
+                    <option>SNGL</option>
+                    <option>подселение в 2-х или 3-ч местный номер</option>
+                </select>
+                <div *ngIf="checkError('desiredHotelAccom' ,'required')" class="alert alert-danger">
+                  Required
+                </div>
+              </div>  
+               
+              <input type="button" class="btn btn-warning" (click)="goBack()" value="Отменить"/>
+              <input type="submit" class="btn btn-success" value="Отправить заказ" [disabled]="orderForm.invalid"/>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
+  
+  

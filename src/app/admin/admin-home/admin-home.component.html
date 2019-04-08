@@ -1,0 +1,13 @@
+  <div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <ul routerLinkActive="active">
+        <li><a [routerLink]="['/admin/roles']">Роли</a></li>
+        <li><a [routerLink]="['/admin/users']">Пользователи</a></li>
+      </ul>
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+      </div>
+  </div>
+</div>

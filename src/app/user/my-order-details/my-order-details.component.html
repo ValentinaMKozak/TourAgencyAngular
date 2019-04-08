@@ -1,0 +1,45 @@
+
+  <div class="container" *ngIf="order">
+    <h4>{{order.tourName}}</h4>
+    <hr>
+    <h5>Данные о туристе, что были переданы при обормлении заказа:</h5>
+    <p> Имя : {{order.firstName}}  Фамилия: {{order.lastName}}</p>
+    <p>Дата рождения: {{order.dateOfBirthday| date: 'dd.MM.yyyy' }} </p>
+    <p>Телефон: {{order.phoneNumber}} </p> 
+    <p>Email: {{order.email}}</p>
+    <hr>
+    <h5>Данные о моих документах:</h5>
+    
+    <div *ngIf="order.isBiometricPassport">
+      <p>Биометрический паспорт: {{order.serieAndNumberOfPassport}}</p>
+    </div>
+    <hr>
+    <div>
+      <h5>Дополнительные операции с документами:</h5>
+      <div *ngIf="order.isBiometricPassport">
+        <p>Необходимо передать турагентсву следующие документы ... для подачи на биометрический паспорт</p>
+      </div>
+      <div *ngIf="!order.isVisaSupport">
+          <p>Необходимо передать турагентсву следующие документы ....</p>
+        </div>
+        <div *ngIf="order.isInsurance">
+            <p>Турагенство оформит страховку</p>
+        </div>
+        <div *ngIf="order.isBookingRailwayTicket">
+            <p>Турагенство закажет билеты на поезд</p>
+        </div>
+        <div *ngIf="order.isBookingAviaTicket">
+            <p>Турагенство забронирует билеты на самолет</p>
+        </div>
+        <div>
+            Данные о номере в отелях: {{order.desiredHotelAccom}} 
+        </div>
+    </div>
+
+    <h5>Данные об оплате:</h5>
+    <p>Необходимо оплатить 270 EUR в течении 3 дней после отправки заказа</p>
+    <p>Необходимо оплатить оставшуюся сумму  за 30 дней до начала тура</p>
+</div>
+<div>
+  <button type="button" class="btn btn-primary"(click)="goBack()">Вернуться</button>
+</div>

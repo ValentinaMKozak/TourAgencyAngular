@@ -1,0 +1,49 @@
+
+ <div class="container" *ngIf="tour" style="margin-top: 50px; margin-bottom: 50px;">
+   <div class="row">
+     <div class="col-xs-12 col-sm-12 col-md-7 " style="margin-bottom: 20px;">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+     </div>
+     <div class="col-xs-12 col-sm-12 col-md-5 tour_info"  style="margin-bottom: 20px;" >
+       <br>
+       <h3 class="tour_name">{{tour.tourName}}</h3>
+       <p style="text-align:center;">{{tour.numberOfDays}} ДНЕЙ</p>
+      <hr>
+
+      <p class="price_hryvnia"> от {{priceHryvnia}} UAN</p>
+      <p class="price_currency">  {{tour.price}} EUR</p>
+      <hr>
+       <p class="country_list">{{tourCountry | uppercase}}</p>
+      <hr> 
+
+      <div *ngIf="tour.typeTransport.transportName == 'bus'" style="text-align: center;"> АВТОБУСНЫЙ ТУР</div>
+      <div *ngIf="tour.typeTransport.transportName == 'avia'" style="text-align: center;">ТУР С АВИАПЕРЕЛЕТОМ</div>
+      <hr>
+
+      <div>
+          <button type="button" class="btn btn-success display_btn" (click)="makeOrder(tour)" >Забронировать</button>
+      </div>
+     
+     </div>
+   </div>
+
+   <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 " style="margin-bottom: 30px;">
+          <div class="panel-group" *ngFor="let program of programs">
+              <div class="panel panel-primary">
+                  <div class="panel-heading" >{{program.theme}}</div>
+                  <div class="panel-body">{{program.description}}</div>
+              </div>
+            </div>
+      </div>
+   </div>
+   <div>
+      <button type="button" class="btn btn-success display_btn" (click)="makeOrder(tour)" >Забронировать</button>
+  </div>
+ </div>  
+
+
+
+
+
+

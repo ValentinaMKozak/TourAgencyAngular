@@ -1,0 +1,18 @@
+
+   <h3 style="text-align: center;">Программа тура</h3>
+  <div class="container">
+    <div class="row">
+     
+      <div *ngFor="let dailyProgram of dailyPrograms" class="col-sm-10">
+      <div *ngIf="tour">
+        <app-daily-program-editor [tour]="tour" [dailyProgram]="dailyProgram"></app-daily-program-editor>
+      </div>
+      
+        
+      </div>
+    </div>
+    <div  class="row">
+      <p>Удаление происходит с конца</p>
+      <button class="btn btn-danger" (click)="deleteDailyProgram()">Удалить</button>
+    </div>
+  </div>

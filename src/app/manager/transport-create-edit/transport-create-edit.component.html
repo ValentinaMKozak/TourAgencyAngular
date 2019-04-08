@@ -1,0 +1,14 @@
+<div >
+  <form [formGroup]="transportForm" (ngSubmit)="onSubmit(transportForm)">
+
+    <div class="form-group">
+      <label for="transportName">Название транспорта</label>
+      <input id ="transportName" type="text" class="form-control" formControlName="transportName">
+      <div *ngIf="checkError('transportName' ,'required')" class="alert alert-danger">
+        Required
+      </div>
+    </div>
+
+    <input type="submit" class="btn btn-success" value="Сохранить" [disabled]="transportForm.invalid"/>
+  </form>
+</div>
